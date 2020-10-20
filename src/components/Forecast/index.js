@@ -1,6 +1,5 @@
 import React, {useMemo} from 'react';
 import {Day} from "../../elements/Day";
-import {useEffect} from 'react';
 import  {useDispatch} from 'react-redux';
 import {weatherActions} from "../Weather/actions";
 

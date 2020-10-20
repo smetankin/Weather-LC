@@ -32,6 +32,7 @@ export const weatherActions = Object.freeze({
             payload: error,
         }
     },
+
     fetchAsync: () => async(dispatch) => {
         dispatch(weatherActions.startFetching());
 
@@ -39,7 +40,6 @@ export const weatherActions = Object.freeze({
 
         if(response.status === 200){
             const results = await response.json();
-            console.log('results',results);
 
             dispatch(weatherActions.fill(results.data));
         } else {

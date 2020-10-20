@@ -7,14 +7,7 @@ import {Forecast} from "../Forecast";
 import {useWeatherFetch} from "./hooks/useWeatherFetch";
 
 export const Weather  = () =>{
-    const {isFetching, data, error} = useWeatherFetch();
-    // if(error && error.status === 404) {
-    //     return <p>Not Found</p>;
-    // }
-    //
-    // if(error && error.status !== 404) {
-    //     return <p>Something went wrong</p>;
-    // }
+    const { data } = useWeatherFetch();
     const [filteredData, setFilterData] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
     useEffect( ()=>{
@@ -23,16 +16,9 @@ export const Weather  = () =>{
 
     const applyFilters = (filters) =>{
         setIsFiltered(true);
-        console.log('filters',filters);
-        console.log('filtered',filteredData);
-        console.log('boolean',filters.weatherType==="");
-
-
         setFilterData(filteredData.filter(item => filters.weatherType ? item.type === filters.weatherType : true)
             .filter(item => filters.maxTemperature ? item.temperature <= filters.maxTemperature : true)
             .filter(item => filters.minTemperature ? item.temperature >= filters.minTemperature : true));
-
-
     };
     const discardFilters = () =>{
         setIsFiltered(false);
@@ -48,17 +34,12 @@ export const Weather  = () =>{
     );
 
     const noDataContent = (
-        <>
-            <p className="message">По заданным критериям нет доступных дней!</p>
-        </>
+        <p className="message">По заданным критериям нет доступных дней!</p>
     );
 
     const renderJsx = (
         filteredData.length? weatherContent : noDataContent
     );
-
-
-
 
     return(
         <>

@@ -62,8 +62,11 @@ export const Filters  = ({applyFilters, discardFilters, isFiltered}) =>{
                         onChange={changeMaxTemperatureValue}
                     />
                 </p>
-                <button onClick={isFiltered? discardFilters: ()=>applyFilters({weatherType, maxTemperature, minTemperature})}>{isFiltered? 'Сбросить' : 'Отфильтровать'}</button>
+                <button onClick={
+                    isFiltered? discardFilters: ()=>applyFilters({weatherType, maxTemperature, minTemperature})}>
+                    {isFiltered? 'Сбросить' : 'Отфильтровать'}
+                </button>
             </div>
         </>
     )
-}
+};

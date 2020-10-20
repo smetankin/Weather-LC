@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {useState} from 'react';
-
 export const Input = ({value, onChange, title, name, id}) =>{
     return(
         <>

@@ -10,4 +10,4 @@ export const toDayPlusMonth = (data) =>{
     const monthDay = day.getDate();
     const monthName = month[day.getMonth()];
     return `${monthDay} ${monthName}`;
-}
+};
